@@ -1,0 +1,24 @@
+{
+  "name": "Ymaps",
+  "version": "1.0.0",
+  "description": "Application for interaction with Yandex Maps",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd backend && node index.js\" \"cd frontend && npm run start\" ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BossNumber1/YMaps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BossNumber1/YMaps/issues"
+  },
+  "homepage": "https://github.com/BossNumber1/YMaps#readme",
+  "dependencies": {
+    "concurrently": "^6.2.1"
+  }
+}
