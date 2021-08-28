@@ -1,9 +1,8 @@
 # YMaps
 
-> <div style="margin: 32px 0 12px; font-style: italic;">
-> Application for interaction with Yandex Maps</div>
+> _Application for interaction with Yandex Maps_
 
-##### <div style="text-align: right"> Написано на React </div><br />
+##### <div align="right"> Написано на React </div><br />
 
 ---
 
@@ -15,4 +14,4 @@
 
 #### <div style="margin: 18px 0 8px 0">Для особо любопытных 👇 </div>
 
-#### <div style="text-align: center">[Демонстрация на сервере](http://yanmap.herokuapp.com/ "Можно просмотреть, как всё происходит, более наглядно...")</div>
+#### <div align="center">[Демонстрация на сервере](http://yanmap.herokuapp.com/ "Можно просмотреть, как всё происходит, более наглядно...")</div>
