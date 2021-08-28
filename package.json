@@ -1,5 +1,5 @@
 {
-  "name": "Ymaps",
+  "name": "ymaps",
   "version": "1.0.0",
   "description": "Application for interaction with Yandex Maps",
   "main": "index.js",
