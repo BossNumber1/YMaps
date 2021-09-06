@@ -8,5 +8,6 @@ const server = http.listen(port, (error) => {
     console.log(`Сервер запущен на порту ${server.address().port}`);
 });
 
-const routes = require("./routes/routes");
+const routes = require("./Routes/users.routes");
+
 routes(app);

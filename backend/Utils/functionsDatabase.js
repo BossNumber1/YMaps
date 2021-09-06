@@ -1,6 +1,6 @@
-const ScriptsForDB = require("../ScriptsForDB");
+const ScriptsForDB = require("../Controllers/ScriptsForDB");
 
-module.exports = class generalFunctionConnectWithDB {
+module.exports = class functionsDatabase {
     static async connectDB(
         methodDB,
         parametres,
