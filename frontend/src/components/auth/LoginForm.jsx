@@ -6,29 +6,20 @@ const LoginForm = ({ setPassedAuthorization }) => {
     const authHandler = (e) => {
         e.preventDefault();
 
-        let login = document.getElementById("loginForRegistration").value;
-        let password = document.getElementById("passwordForRegistration").value;
-
         axios
-            .post("http://localhost:80/getUserData/", {
-                login: login,
+            .post("http://localhost:80/comparison/", {
+                login: document.getElementById("loginForRegistration").value,
+                password: document.getElementById("passwordForRegistration")
+                    .value,
             })
             .then((resultat) => {
-                if (resultat.data === "empty") {
-                    alert("Неверные данные");
-                }
-
-                if (
-                    JSON.parse(resultat.data).login === login &&
-                    JSON.parse(resultat.data).password === password
-                ) {
-                    localStorage.setItem("login", login);
-                    localStorage.setItem("password", password);
-                    localStorage.removeItem("exited");
-                    setPassedAuthorization(true);
-                } else {
-                    alert("Неверные данные");
-                }
+                localStorage.setItem("login", resultat.data.login);
+                localStorage.setItem("token", resultat.data.token);
+                localStorage.removeItem("exited");
+                setPassedAuthorization(true);
+            })
+            .catch((error) => {
+                alert(error.response.data);
             });
     };
 

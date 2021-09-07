@@ -7,7 +7,7 @@ function RegistrationForm({ setPassedAuthorization }) {
     const [showAuth, setShowAuth] = React.useState(false);
 
     React.useEffect(() => {
-        if (localStorage.getItem("login") && localStorage.getItem("password")) {
+        if (localStorage.getItem("login")) {
             setPassedAuthorization(true);
         } else {
             if (localStorage.getItem("exited") === "true") {
@@ -26,36 +26,20 @@ function RegistrationForm({ setPassedAuthorization }) {
             .post("http://localhost:80/getUserData/", {
                 login: login,
             })
-            .then((resultat) => {
-                if (resultat.data === "empty") {
-                    axios
-                        .post("http://localhost:80/auth/", {
-                            login: login,
-                            password: password,
-                        })
-                        .then((resultat) => {
-                            if (resultat.data === "true") {
-                                axios
-                                    .post("http://localhost:80/getUserData/", {
-                                        login: login,
-                                    })
-                                    .then((resultat) => {
-                                        if (resultat.data !== "empty") {
-                                            let id_user = JSON.parse(
-                                                resultat.data
-                                            ).id;
-
-                                            localStorage.setItem(
-                                                "id_user",
-                                                id_user
-                                            );
-
-                                            setShowAuth(true);
-                                        }
-                                    });
-                            }
-                        });
-                }
+            .then(() => {
+                alert(
+                    "Пользователь с таким логином существует, можете попробовать другой..."
+                );
+            })
+            .catch(() => {
+                axios
+                    .post("http://localhost:80/auth/", {
+                        login: login,
+                        password: password,
+                    })
+                    .then(() => {
+                        setShowAuth(true);
+                    });
             });
     };
 

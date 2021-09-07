@@ -9,14 +9,12 @@ function AddPlacemark({ setNoPlacemarks, setPlacemarker, dataPlacemarks }) {
         let latitudeToAdd = document.getElementById("latitudeToAdd").value;
         let longitudeToAdd = document.getElementById("longitudeToAdd").value;
 
-        let id_user = localStorage.getItem("id_user");
-
         axios
             .post("http://localhost:80/createPlacemark/", {
-                id_user: id_user,
                 name: nameToAdd,
                 latitude: latitudeToAdd,
                 longitude: longitudeToAdd,
+                token: localStorage.getItem("token"),
             })
             .then(() => {
                 setNoPlacemarks(false);

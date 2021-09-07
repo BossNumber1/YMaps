@@ -30,6 +30,15 @@ module.exports = class ScriptsForDB {
         );
     }
 
+    // получаем всех пользователей
+    static async getDataAllUsers() {
+        return new Promise((resolve, reject) =>
+            db.all("SELECT id, login, password FROM userData", (err, row) =>
+                err ? reject(err) : !row ? resolve(null) : resolve([...row])
+            )
+        );
+    }
+
     // добавляем координаты и имя метки
     static async createPlacemark(userData) {
         const { id_user, name, latitude, longitude } = userData;

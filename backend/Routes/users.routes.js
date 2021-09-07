@@ -11,6 +11,7 @@ module.exports = (app) => {
         })
     );
 
+    app.post("/comparison", userControllers.comparison);
     app.post("/auth", userControllers.auth);
     app.post("/getUserData", userControllers.getUserData);
     app.post("/createPlacemark", userControllers.createPlacemark);

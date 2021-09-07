@@ -23,11 +23,11 @@ function ListPlacemarks({
     const updatePlacemark = () => {
         axios
             .post("http://localhost:80/updatePlacemark/", {
-                id_user: localStorage.getItem("id_user"),
                 name: namePlacemarkSpecific,
                 oldName: name,
                 latitude: latitudePlacemarkSpecific,
                 longitude: longitudePlacemarkSpecific,
+                token: localStorage.getItem("token"),
             })
             .then(() => {
                 setEdit(false);
@@ -41,8 +41,8 @@ function ListPlacemarks({
     const deletePlacemark = () => {
         axios
             .post("http://localhost:80/deletePlacemark/", {
-                id_user: localStorage.getItem("id_user"),
                 name: name,
+                token: localStorage.getItem("token"),
             })
             .then(() => {
                 setHidePlacemarker(true);

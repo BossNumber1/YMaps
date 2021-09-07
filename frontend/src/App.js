@@ -21,11 +21,9 @@ function App() {
     }, [passedAuthorization]);
 
     const getPlacemarksData = () => {
-        let id_user = localStorage.getItem("id_user");
-
         axios
             .post("http://localhost:80/getPlacemarksData/", {
-                id_user: id_user,
+                token: localStorage.getItem("token"),
             })
             .then((resultat) => {
                 if (resultat.data !== "[]") {
@@ -51,7 +49,7 @@ function App() {
 
     const exit = () => {
         localStorage.removeItem("login");
-        localStorage.removeItem("password");
+        localStorage.removeItem("token");
         localStorage.setItem("exited", "true");
         setPassedAuthorization(false);
     };
