@@ -11,7 +11,16 @@ module.exports = (app) => {
         })
     );
 
-    app.post("/comparison", userControllers.comparison);
+    var id = 0;
+
+    app.post("/transferId", (req, res) => {
+        id = req.body.id;
+
+        require("../PassportJS/comparison.js")(app, id);
+    });
+
+    require("../PassportJS/comparison.js")(app, id);
+
     app.post("/auth", userControllers.auth);
     app.post("/getUserData", userControllers.getUserData);
     app.post("/createPlacemark", userControllers.createPlacemark);

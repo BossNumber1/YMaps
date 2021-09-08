@@ -19,7 +19,7 @@ const LoginForm = ({ setPassedAuthorization }) => {
                 setPassedAuthorization(true);
             })
             .catch((error) => {
-                alert(error.response.data);
+                alert(error.response.data.message);
             });
     };
 

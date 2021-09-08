@@ -37,7 +37,11 @@ function RegistrationForm({ setPassedAuthorization }) {
                         login: login,
                         password: password,
                     })
-                    .then(() => {
+                    .then((res) => {
+                        axios.post("http://localhost:80/transferId/", {
+                            id: JSON.parse(res.data).id,
+                        });
+
                         setShowAuth(true);
                     });
             });

@@ -14,7 +14,18 @@ module.exports = class ScriptsForDB {
                 [login, password],
                 (err) => (err ? reject(err) : resolve(true))
             )
-        );
+        ).then(async () => {
+            return new Promise((resolve, reject) =>
+                db.get(
+                    "SELECT id FROM userData WHERE login = ?",
+                    [login],
+                    (err, row) =>
+                        err ? reject(err) : !row ? resolve(null) : resolve(row)
+                )
+            ).then((element) => {
+                return element;
+            });
+        });
     }
 
     // получаем пользователя

@@ -7,7 +7,7 @@ module.exports = function routingFunction(method, tokenCreation = null) {
             function getUserData() {
                 if (req.body.token) {
                     let decoded = jwt_decode(req.body.token);
-                    console.log("decoded =", decoded);
+
                     return {
                         id_user: decoded.id,
                         login: decoded.login,
